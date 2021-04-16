@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>花密（H5）</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="static/css/mui.min.css" rel="stylesheet" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-pull-left"></a>
+			<h1 class="mui-title">花密（H5）</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 5px;">
+				<form class="mui-input-group">
+
+					<div class="mui-input-row mui-password">
+						<label>记忆密码</label>
+						<input id="password" type="password" class="mui-input-password" placeholder="">
+					</div>
+
+					<div class="mui-input-row">
+						<label>区分代号</label>
+						<input id="key" type="text" class="mui-input-clear" placeholder="">
+					</div>
+
+					<div class="mui-input-row mui-password">
+						<label>最终密码</label>
+						<input id="code16" type="password" class="mui-input-password" placeholder="">
+					</div>
+					<div class="mui-button-row">
+						<button type="button" class="mui-btn mui-btn-primary mui-btn-copy" data-clipboard-target="#code16">复制</button>&nbsp;&nbsp;
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</body>
+	<script src="static/js/mui.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+
+		function countCode() {
+			var password = $("#password").val();
+			var key = $("#key").val();
+			if (password && key) {
+				var md5one = md5(password, key);
+				var md5two = md5(md5one, 'snow');
+				var md5three = md5(md5one, 'kise');
+				//计算大小写
+				var rule = md5three.split("");
+				var source = md5two.split("");
+				for (var i = 0; i <= 31; i++) {
+					if (isNaN(source[i])) {
+						str = "sunlovesnow1990090127xykab";
+						if (str.search(rule[i]) > -1) {
+							source[i] = source[i].toUpperCase();
+						}
+					}
+				}
+				var code32 = source.join("");
+				var code1 = code32.slice(0, 1);
+				if (isNaN(code1)) {
+					var code16 = code32.slice(0, 16);
+				} else {
+					var code16 = "K" + code32.slice(1, 16);
+				}
+				$("#code16").val(code16);
+			}
+		}
+
+
+		$(function() { //页面载入后执行的内容
+			//监视内容改变
+			$('#password').change(countCode);
+			$('#key').change(countCode);
+			$('#password').keyup(countCode);
+			$('#key').keyup(countCode);
+			var clipboard = new ClipboardJS('.mui-btn-copy');
+			clipboard.on('success', function(e) {
+				mui.toast('复制成功');
+			});
+		});
+	</script>
+</html>

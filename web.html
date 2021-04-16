@@ -1,203 +1,216 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>    花密网页版
-</title>
+	<head>
+		<meta charset="utf-8">
+		<title> 花密网页版 </title>
+		<script type="text/javascript">
+			function browserRedirect() {
+				var sUserAgent = navigator.userAgent.toLowerCase();
+				if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+					//跳转移动端页面
+					window.location.href = "h5.html"
+					rel = "external nofollow";
+				}
+			}
+			browserRedirect();
+		</script>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Le styles -->
-    <link href="static/css/bootstrap.css" rel="stylesheet">
-    <link href="static/css/fp.css" rel="stylesheet">
+		<!-- Le styles -->
+		<link href="static/css/bootstrap.css" rel="stylesheet">
+		<link href="static/css/fp.css" rel="stylesheet">
 
-    <!-- scripts -->
-    <script src="static/js/jquery.min.js"></script>
+		<!-- scripts -->
+		<script src="static/js/jquery.min.js"></script>
 
-    <!-- 网页版JS文件 -->
-        <script src="static/js/md5.js"></script>
-        <script type="text/javascript">
-            function countCode() {
-                var password = $("#password").val();
-                var key = $("#key").val();
-                if (password && key) {
-                    var md5one = $.md5(password, key);
-                    var md5two = $.md5(md5one, 'snow');
-                    var md5three = $.md5(md5one, 'kise');
-                    //计算大小写
-                    var rule = md5three.split("");
-                    var source = md5two.split("");
-                    for (var i = 0; i <= 31; i++) {
-                        if (isNaN(source[i])) {
-                            str = "sunlovesnow1990090127xykab";
-                            if (str.search(rule[i]) > -1) {
-                                source[i] = source[i].toUpperCase();
-                            }
-                        }
-                    }
-                    var code32 = source.join("");
-                    var code1 = code32.slice(0, 1);
-                    if (isNaN(code1)) {
-                        var code16 = code32.slice(0, 16);
-                    } else {
-                        var code16 = "K" + code32.slice(1, 16);
-                    }
-                    $("#code16").text(code16);
-                }
-            }
+		<!-- 网页版JS文件 -->
+		<script src="static/js/md5.js"></script>
+		<script type="text/javascript">
+			function countCode() {
+				var password = $("#password").val();
+				var key = $("#key").val();
+				if (password && key) {
+					var md5one = $.md5(password, key);
+					var md5two = $.md5(md5one, 'snow');
+					var md5three = $.md5(md5one, 'kise');
+					//计算大小写
+					var rule = md5three.split("");
+					var source = md5two.split("");
+					for (var i = 0; i <= 31; i++) {
+						if (isNaN(source[i])) {
+							str = "sunlovesnow1990090127xykab";
+							if (str.search(rule[i]) > -1) {
+								source[i] = source[i].toUpperCase();
+							}
+						}
+					}
+					var code32 = source.join("");
+					var code1 = code32.slice(0, 1);
+					if (isNaN(code1)) {
+						var code16 = code32.slice(0, 16);
+					} else {
+						var code16 = "K" + code32.slice(1, 16);
+					}
+					$("#code16").text(code16);
+				}
+			}
 
-            $(function () { //页面载入后执行的内容
-                //监视内容改变
-                $('#password').change(countCode);
-                $('#key').change(countCode);
-                $('#password').keyup(countCode);
-                $('#key').keyup(countCode);
+			$(function() { //页面载入后执行的内容
+				//监视内容改变
+				$('#password').change(countCode);
+				$('#key').change(countCode);
+				$('#password').keyup(countCode);
+				$('#key').keyup(countCode);
 
-                var clipboard = new ClipboardJS('.copycode16d');
-                clipboard.on('success', function (e) {
-                    $('#copyOK').fadeTo(0, 0).css("border-color", "#22B614").css("background-color", "#22B614").fadeTo('normal', 1).fadeTo(1000, 1).fadeTo(1000, 0);
-                    _gaq.push(['_trackEvent', 'App', 'Copy', 'Web']);
-                    e.clearSelection();
-                });
+				var clipboard = new ClipboardJS('.copycode16d');
+				clipboard.on('success', function(e) {
+					$('#copyOK').fadeTo(0, 0).css("border-color", "#22B614").css("background-color", "#22B614").fadeTo('normal', 1)
+						.fadeTo(1000, 1).fadeTo(1000, 0);
+					_gaq.push(['_trackEvent', 'App', 'Copy', 'Web']);
+					e.clearSelection();
+				});
 
-                $('#copycode16').mouseover(function () {
-                    $('#copycode16').addClass("copycode16h");
-                    $('#code16').addClass("code16h");
-                });
+				$('#copycode16').mouseover(function() {
+					$('#copycode16').addClass("copycode16h");
+					$('#code16').addClass("code16h");
+				});
 
-                $('#copycode16').mouseout(function () {
-                    $('#copycode16').removeClass("copycode16h");
-                    $('#code16').removeClass("code16h");
-                });
-            });
-        </script>
-    
-
-    <script type="text/javascript">
-        $(function () {
-            var $sidebar = $("#content-nav"),
-                $window = $(window),
-                offset = $sidebar.offset(),
-                topPadding = 15;
-            $window.scroll(function () {
-                if ($window.scrollTop() > offset.top) {
-                    $sidebar.stop().animate({
-                        marginTop: $window.scrollTop() - offset.top + topPadding
-                    });
-                } else {
-                    $sidebar.stop().animate({
-                        marginTop: 0
-                    });
-                }
-            });
-        });
-    </script>
+				$('#copycode16').mouseout(function() {
+					$('#copycode16').removeClass("copycode16h");
+					$('#code16').removeClass("code16h");
+				});
+			});
+		</script>
 
 
-    <!-- google analytics -->
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-29125905-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- /google analytics -->
-
-</head>
-
-<body>
-<div class="container">
-
-    <header>
-        <a href="index.html" class="left"><img src="static/picture/logo_web.png" alt="花密 Flower Password" id="logo"></a>
-
-        <ul id="nav" class="nav nav-pills">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="guide.html">入门</a></li>
-            <li class="active"><a href="">应用</a></li>
-        </ul>
-
-    </header>
-
-    
-    <div id="content" class="row">
-        <div class="span9">
-            <h2><span>1</span>输入</h2>
-            <div id="input">
-                <label for="password">记忆密码</label><input id="password" name="password" type="password" value="" tabindex="1">
-                <span>+</span>
-                <label for="key">区分代号</label><input id="key" name="key" type="text" value="" tabindex="2">
-            </div>
-            <h2><span>2</span>获取</h2>
-            <div id="get">
-                <p id="tuijian">
-                    最终密码
-                    <span id="code16" class="code16d" style="margin-right: -4px;">&nbsp;</span>
-                    <span id="copycode16" class="copycode16d" data-clipboard-target="#code16">点击复制</span>
-                    <span id="copyOK">&radic; 复制成功</span>
-                </p>
-            </div>
-            <script src="static/js/clipboard.min.js"></script>
-
-            <script src="static/js/bootstrap-tab.js"></script>
-            <ul id="tab" class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab">使用介绍</a></li>
-                <li><a href="#comment" data-toggle="tab">反馈留言</a></li>
-            </ul>
-
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade in active" id="home">
-                    <p>· 记忆密码：选择一个与个人信息无关的密码，防止社会工程学破解。<br>· 区分代号：用于区别不同用途密码的简短代号，如淘宝账号可用“taobao”或“tb”等。</p>
-                </div>
-                <div class="tab-pane fade" id="comment">
-                    <!-- Duoshuo Comment BEGIN -->
-                    <div class="ds-thread"></div>
-                    <script type="text/javascript">
-                        var duoshuoQuery = {short_name: "flowerpassword"};
-                        (function () {
-                            var ds = document.createElement('script');
-                            ds.type = 'text/javascript';
-                            ds.async = true;
-                            ds.src = 'http://static.duoshuo.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                        })();
-                    </script>
-                    <!-- Duoshuo Comment END -->
-                </div>
-            </div>
+		<script type="text/javascript">
+			$(function() {
+				var $sidebar = $("#content-nav"),
+					$window = $(window),
+					offset = $sidebar.offset(),
+					topPadding = 15;
+				$window.scroll(function() {
+					if ($window.scrollTop() > offset.top) {
+						$sidebar.stop().animate({
+							marginTop: $window.scrollTop() - offset.top + topPadding
+						});
+					} else {
+						$sidebar.stop().animate({
+							marginTop: 0
+						});
+					}
+				});
+			});
+		</script>
 
 
-    </div><!-- span9 -->
+		<!-- google analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29125905-1']);
+			_gaq.push(['_trackPageview']);
 
-<div class="span3">
-			<ul id="content-nav">
-				<li><a href="" id="nav-web" class="&quot;active&quot;">网页版</a></li>
-				<li><a href="mac.html" id="nav-mac">Mac版</a></li>
-				<li><a href="windows.html" id="nav-windows">Windows版</a></li>
-				<li><a href="ios.html" id="nav-mac">iOS版</a></li>
-				<li><a href="android.html" id="nav-android">Android版</a></li>
-				<li><a href="windows-phone.html" id="nav-windows" title="Windows Phone 版">WP版</a></li>
-				<li><a href="chrome.html" id="nav-chrome">Chrome扩展</a></li>
-			</ul>
-		</div>
-</div><!-- #content -->
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<!-- /google analytics -->
 
-    <footer>
-        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
-            reserved.</p>
-        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
-    </footer>
-</div><!-- /container -->
-</body>
+	</head>
+
+	<body>
+		<div class="container">
+
+			<header>
+				<a href="index.html" class="left"><img src="static/picture/logo_web.png" alt="花密 Flower Password" id="logo"></a>
+
+				<ul id="nav" class="nav nav-pills">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="guide.html">入门</a></li>
+					<li class="active"><a href="">应用</a></li>
+				</ul>
+
+			</header>
+
+
+			<div id="content" class="row">
+				<div class="span9">
+					<h2><span>1</span>输入</h2>
+					<div id="input">
+						<label for="password">记忆密码</label><input id="password" name="password" type="password" value="" tabindex="1">
+						<span>+</span>
+						<label for="key">区分代号</label><input id="key" name="key" type="text" value="" tabindex="2">
+					</div>
+					<h2><span>2</span>获取</h2>
+					<div id="get">
+						<p id="tuijian">
+							最终密码
+							<span id="code16" class="code16d" style="margin-right: -4px;">&nbsp;</span>
+							<span id="copycode16" class="copycode16d" data-clipboard-target="#code16">点击复制</span>
+							<span id="copyOK">&radic; 复制成功</span>
+						</p>
+					</div>
+					<script src="static/js/clipboard.min.js"></script>
+
+					<script src="static/js/bootstrap-tab.js"></script>
+					<ul id="tab" class="nav nav-tabs">
+						<li class="active"><a href="#home" data-toggle="tab">使用介绍</a></li>
+						<li><a href="#comment" data-toggle="tab">反馈留言</a></li>
+					</ul>
+
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<p>· 记忆密码：选择一个与个人信息无关的密码，防止社会工程学破解。<br>· 区分代号：用于区别不同用途密码的简短代号，如淘宝账号可用“taobao”或“tb”等。</p>
+						</div>
+						<div class="tab-pane fade" id="comment">
+							<!-- Duoshuo Comment BEGIN -->
+							<div class="ds-thread"></div>
+							<script type="text/javascript">
+								var duoshuoQuery = {
+									short_name: "flowerpassword"
+								};
+								(function() {
+									var ds = document.createElement('script');
+									ds.type = 'text/javascript';
+									ds.async = true;
+									ds.src = 'http://static.duoshuo.com/embed.js';
+									(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+								})();
+							</script>
+							<!-- Duoshuo Comment END -->
+						</div>
+					</div>
+
+
+				</div><!-- span9 -->
+
+				<div class="span3">
+					<ul id="content-nav">
+						<li><a href="" id="nav-web" class="&quot;active&quot;">网页版</a></li>
+						<li><a href="mac.html" id="nav-mac">Mac版</a></li>
+						<li><a href="windows.html" id="nav-windows">Windows版</a></li>
+						<li><a href="ios.html" id="nav-mac">iOS版</a></li>
+						<li><a href="android.html" id="nav-android">Android版</a></li>
+						<li><a href="windows-phone.html" id="nav-windows" title="Windows Phone 版">WP版</a></li>
+						<li><a href="chrome.html" id="nav-chrome">Chrome扩展</a></li>
+					</ul>
+				</div>
+			</div><!-- #content -->
+
+			<footer>
+				<p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+					reserved.</p>
+				<p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+			</footer>
+		</div><!-- /container -->
+	</body>
 </html>
