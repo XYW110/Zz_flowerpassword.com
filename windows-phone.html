@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>花密 windows phone 版
+</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/fp.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="static/js/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var $sidebar = $("#content-nav"),
+                $window = $(window),
+                offset = $sidebar.offset(),
+                topPadding = 15;
+            $window.scroll(function () {
+                if ($window.scrollTop() > offset.top) {
+                    $sidebar.stop().animate({
+                        marginTop: $window.scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $sidebar.stop().animate({
+                        marginTop: 0
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29125905-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /google analytics -->
+
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <a href="index.html" class="left"><img src="static/picture/logo_windows-phone.png" alt="花密 Flower Password" id="logo"></a>
+
+        <ul id="nav" class="nav nav-pills">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="guide.html">入门</a></li>
+            <li class="active"><a href="web.html">应用</a></li>
+        </ul>
+
+    </header>
+
+    
+<div id="content" class="row">
+	<div class="span9">
+		
+		<p class="left" style="margin:45px 70px 0 0">
+			<a href="javascript:;" onclick="_gaq.push(['_trackEvent', 'App', 'Download', 'WindowsPhone']);" target="_blank" class="btn btn-large btn-primary down-button">访问 Windows Phone 应用商店下载花密</a>
+		</p>
+		<p class="left"><img src="static/picture/ios-code.gif" alt="花密Windows Phone版 二维码"></p>
+		<div class="clear"></div>
+
+		<script src="static/js/bootstrap-tab.js"></script>
+		<ul id="tab" class="nav nav-tabs">
+			<li class="active"><a href="#home" data-toggle="tab">截图介绍</a></li>
+			<li><a href="#comment" data-toggle="tab">反馈留言</a></li>
+		</ul>
+
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="home">
+				<p>花密 Windows Phone 版提供了在搭载Windows Phone系统的移动设备上生成花密密码的功能。用户只需要输入记忆密码和区分代号，即可将生成的密码复制到剪贴板，并粘贴到网页或其他应用的密码输入框中。</p>
+				<p>花密 Windows Phone 版支持Windows Phone 8及以上版本使用。</p>
+				<img src="static/picture/windows-phone-screenshot.png" alt="花密Windows Phone版截图" height="363px">
+				<p>花密Windows版由Void_CE制作，欢迎访问关注他的<a target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'Void_CE', 'Void_CE blog']);" href="javascript:;">个人博客</a></p>
+			</div>
+			<div class="tab-pane fade" id="comment">
+				<!-- Duoshuo Comment BEGIN -->
+					<div class="ds-thread"></div>
+					<script type="text/javascript">
+					var duoshuoQuery = {short_name: "flowerpassword"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = 'http://static.duoshuo.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+					</script>
+				<!-- Duoshuo Comment END -->
+			</div>
+		</div>
+
+
+</div><!-- span9 -->
+
+<div class="span3">
+			<ul id="content-nav">
+				<li><a href="web.html" id="nav-web">网页版</a></li>
+				<li><a href="mac.html" id="nav-mac">Mac版</a></li>
+				<li><a href="windows.html" id="nav-windows">Windows版</a></li>
+				<li><a href="ios.html" id="nav-mac">iOS版</a></li>
+				<li><a href="android.html" id="nav-android">Android版</a></li>
+				<li><a href="" id="nav-windows" class="&quot;active&quot;" title="Windows Phone 版">WP版</a></li>
+				<li><a href="chrome.html" id="nav-chrome">Chrome扩展</a></li>
+			</ul>
+		</div>
+</div><!-- #content -->	
+
+    <footer>
+        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+            reserved.</p>
+        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+    </footer>
+</div><!-- /container -->
+</body>
+</html>

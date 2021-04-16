@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>花密特点优势
+</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/fp.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="static/js/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var $sidebar = $("#content-nav"),
+                $window = $(window),
+                offset = $sidebar.offset(),
+                topPadding = 15;
+            $window.scroll(function () {
+                if ($window.scrollTop() > offset.top) {
+                    $sidebar.stop().animate({
+                        marginTop: $window.scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $sidebar.stop().animate({
+                        marginTop: 0
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29125905-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /google analytics -->
+
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <a href="index.html" class="left"><img src="static/picture/logo_guide.png" alt="花密 Flower Password" id="logo"></a>
+
+        <ul id="nav" class="nav nav-pills">
+            <li><a href="index.html">首页</a></li>
+            <li class="active"><a href="guide.html">入门</a></li>
+            <li><a href="web.html">应用</a></li>
+        </ul>
+
+    </header>
+
+    
+<div id="content" class="row">
+	<div class="span9">
+		<h2>可记忆</h2>
+		<p>使用花密，只需记住一个“记忆密码”</p>
+		<p>在各种云同步泛滥的年代。我们使用了一种最酷的同步介质——“你的大脑”</p>
+
+		<h2>非储存</h2>
+		<p>与其他密码管理工具不同，花密只有计算的过程，没有任何形式的服务器储存过程</p>
+		<p>我们渴望信任，但是在这个缺乏信任的年代，我们希望使用这种方式保证你的密码安全可靠</p>
+
+		<h2>不可逆</h2>
+		<p>花密的计算过程不可逆，即使有人获取了你某个账号的密码，也无法计算出你的“记忆密码”，从而保证其他账号的安全</p>
+		
+		<h2>更安全</h2>
+		<p>通过花密计算出的最终密码是长度为16位的大小写字母和数字的组合，直接暴力破解，以目前单机计算能力，破解密码需要6万亿年之久</p>
+
+		<h2>可扩展</h2>
+		<p>花密“区分代号”的设计，保证了密码的“可扩展”性</p>
+		<p>密码的版本控制，有时候我们不可避免地需要和别人分享，分享之后需要再修改密码。如原淘宝的区分代号是“taobao”，现在需要修改密码，只需将区分代号改成“taobao2”就可以生成一个完全不同的最终密码</p>
+		<p>单网站多密码管理，例如有个独立博客“wordpress.com”，可能需要管理后台、mysql、FTP等多个密码，那么可以分别使用“wordpress.admin”、“wordpress.mysql”、“wordpress.ftp”作为区分代号</p>
+
+		<h2>跨平台应用支持</h2>
+		<p>花密提供了多个平台的支持，在今后花密也会不断完善应用使用体验，让花密更加简单易用</p>
+
+		<h2>开源透明</h2>
+		<p>花密应用遵守GPL开源协议，保证所有应用开放透明</p>
+
+		<p><a href="web.html" class="btn btn-large">试用花密应用</a></p>
+	</div>
+	
+	<div class="span3">
+	<ul id="content-nav">
+		<li><a href="guide.html">入门指南</a></li>
+		<li><a href="step.html">使用步骤</a></li>
+		<li><a href="" class="&quot;active&quot;">特点优势</a></li>
+	</ul>
+</div></div><!-- /content -->
+	
+
+    <footer>
+        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+            reserved.</p>
+        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+    </footer>
+</div><!-- /container -->
+</body>
+</html>

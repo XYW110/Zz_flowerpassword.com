@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>花密 -- 不一样的密码管理工具
+</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/fp.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="static/js/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var $sidebar = $("#content-nav"),
+                $window = $(window),
+                offset = $sidebar.offset(),
+                topPadding = 15;
+            $window.scroll(function () {
+                if ($window.scrollTop() > offset.top) {
+                    $sidebar.stop().animate({
+                        marginTop: $window.scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $sidebar.stop().animate({
+                        marginTop: 0
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29125905-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /google analytics -->
+
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <a href="" class="left"><img src="static/picture/logo.png" alt="花密 Flower Password" id="logo"></a>
+
+        <ul id="nav" class="nav nav-pills">
+            <li class="active"><a href="">首页</a></li>
+            <li><a href="guide.html">入门</a></li>
+            <li><a href="web.html">应用</a></li>
+        </ul>
+
+    </header>
+
+    
+<div id="index-box">
+	<script type="text/javascript" src="static/js/tinyslider.js"></script>
+	<div id="index-slider">
+		<ul>
+			<li><img src="static/picture/banner1.jpg" alt="不一样的密码管理工具——花密"></li>
+			<li><a href="guide.html"><img src="static/picture/banner2.jpg" alt="多应用支持——花密"></a></li>
+			<li><img src="static/picture/banner3.jpg" alt="无需储存密码——花密"></li>
+		</ul>
+		<ul id="pagination">
+			<li onclick="slideshow.pos(0)"> </li>
+			<li onclick="slideshow.pos(1)"> </li>
+			<li onclick="slideshow.pos(2)"> </li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var slideshow=new TINY.slider.slide('slideshow',{
+			id:'index-slider',
+			auto:9,
+			resume:true,
+			vertical:false,
+			navid:'pagination',
+			activeclass:'active',
+			position:0
+		});
+	</script>
+
+	<div class="clear"></div>
+
+	<div class="float-box">
+		<img src="static/picture/index-intro.gif" alt="花密介绍" style="height:304px">
+
+		<div id="index-report">
+			<ul>
+				<li>目前最好的密码管理方案</li>
+				<li>好记又好用的密码管理器</li>
+				<li>不一样的优秀密码管理解决方案</li>
+				<li>将密码藏在花蕊中</li>
+			</ul>
+		</div>
+
+		<ul id="index-report-pagination">
+			<li onclick="reportslideshow.pos(0)"><img src="static/picture/diannaobao.gif" alt="电脑报"></li>
+			<li onclick="reportslideshow.pos(1)"><img src="static/picture/appinn.gif" alt="小众软件"></li>
+			<li onclick="reportslideshow.pos(2)"><img src="static/picture/iplaysoft.gif" alt="异次元软件世界"></li>
+			<li onclick="reportslideshow.pos(3)"><img src="static/picture/itshibao.gif" alt="IT时报"></li>
+		</ul>
+		<script type="text/javascript">
+		var reportslideshow=new TINY.slider.slide('reportslideshow',{
+			id:'index-report',
+			auto:0,
+			resume:true,
+			vertical:false,
+			navid:'index-report-pagination',
+			activeclass:'active',
+			position:0
+		});
+	</script>
+	</div>
+
+	<div class="float-box">
+		<ul id="content-nav">
+			<li><a href="web.html" id="nav-web">网页版</a></li>
+			<li><a href="mac.html" id="nav-mac">Mac版</a></li>
+			<li><a href="windows.html" id="nav-windows">Windows版</a></li>
+			<li><a href="ios.html" id="nav-mac">iOS版</a></li>
+			<li><a href="android.html" id="nav-android">Android版</a></li>
+			<li><a href="windows-phone.html" id="nav-windows" title="Windows Phone 版">WP版</a></li>
+			<li><a href="chrome.html" id="nav-chrome">Chrome扩展</a></li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+
+	<div id="index-button">
+		<a href="guide.html" class="btn btn-large btn-primary">查看入门指南</a>
+		<a href="web.html" class="btn btn-large">获取花密应用</a>
+	</div>
+</div>
+	
+
+    <footer>
+        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+            reserved.</p>
+        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+    </footer>
+</div><!-- /container -->
+</body>
+</html>

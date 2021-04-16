@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>花密Chrome扩展
+</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/fp.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="static/js/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var $sidebar = $("#content-nav"),
+                $window = $(window),
+                offset = $sidebar.offset(),
+                topPadding = 15;
+            $window.scroll(function () {
+                if ($window.scrollTop() > offset.top) {
+                    $sidebar.stop().animate({
+                        marginTop: $window.scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $sidebar.stop().animate({
+                        marginTop: 0
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29125905-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /google analytics -->
+
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <a href="index.html" class="left"><img src="static/picture/logo_chrome.png" alt="花密 Flower Password" id="logo"></a>
+
+        <ul id="nav" class="nav nav-pills">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="guide.html">入门</a></li>
+            <li class="active"><a href="web.html">应用</a></li>
+        </ul>
+
+    </header>
+
+    
+<div id="content" class="row">
+	<div class="span9">
+		
+		<p>
+			<a href="javascript:;" onclick="_gaq.push(['_trackEvent', 'App', 'Visit', 'Chrome Web Store']);" target="_blank" class="btn btn-large btn-primary down-button">访问Chrome网上应用商店安装</a> 或者 
+			<a href="javascript:;" onclick="_gaq.push(['_trackEvent', 'App', 'Download', 'Chrome']);" target="_blank">直接下载花密Chrome扩展</a>
+
+		</p>
+		
+		<script src="static/js/bootstrap-tab.js"></script>
+		<ul id="tab" class="nav nav-tabs">
+			<li class="active"><a href="#home" data-toggle="tab">截图介绍</a></li>
+			<li><a href="#comment" data-toggle="tab">反馈留言</a></li>
+		</ul>
+
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="home">
+				<p>花密Chrome扩展是chrome（谷歌浏览器）上的一款扩展插件，安装之后，当你访问需要输入密码的页面会弹出花密的输入窗口，输入记忆密码和区分代号之后，生成的密码会自动填充到该密码输入框中（如下图）。</p>
+				<img src="static/picture/chrome-screenshot1.png" alt="花密Chrome扩展截图" height="276px">
+				<p>花密Chrome扩展由花密团队的JohnnyJian制作，欢迎访问关注他的<a target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'devJohnny', 'Johnny blog']);" href="javascript:;">个人博客</a>、 <a target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'devJohnny', 'Johnny weibo']);" href="javascript:;">新浪微博</a></p>
+				<p>花密Chrome扩展开源项目地址：<a href="javascript:;" target="_blank" onclick="_gaq.push(['_trackEvent', 'Click', 'devChrome', 'google code chrome']);">http://code.google.com/p/flower-password-chrome/</a></p>
+			</div>
+			<div class="tab-pane fade" id="comment">
+				<!-- Duoshuo Comment BEGIN -->
+					<div class="ds-thread"></div>
+					<script type="text/javascript">
+					var duoshuoQuery = {short_name: "flowerpassword"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = 'http://static.duoshuo.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+					</script>
+				<!-- Duoshuo Comment END -->
+			</div>
+		</div>
+
+
+</div><!-- span9 -->
+
+<div class="span3">
+			<ul id="content-nav">
+				<li><a href="web.html" id="nav-web">网页版</a></li>
+				<li><a href="mac.html" id="nav-mac">Mac版</a></li>
+				<li><a href="windows.html" id="nav-windows">Windows版</a></li>
+				<li><a href="ios.html" id="nav-mac">iOS版</a></li>
+				<li><a href="android.html" id="nav-android">Android版</a></li>
+				<li><a href="windows-phone.html" id="nav-windows" title="Windows Phone 版">WP版</a></li>
+				<li><a href="" id="nav-chrome" class="&quot;active&quot;">Chrome扩展</a></li>
+			</ul>
+		</div>
+</div><!-- #content -->	
+
+    <footer>
+        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+            reserved.</p>
+        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+    </footer>
+</div><!-- /container -->
+</body>
+</html>

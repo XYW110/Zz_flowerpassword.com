@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>花密入门指南
+</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/fp.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="static/js/jquery.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            var $sidebar = $("#content-nav"),
+                $window = $(window),
+                offset = $sidebar.offset(),
+                topPadding = 15;
+            $window.scroll(function () {
+                if ($window.scrollTop() > offset.top) {
+                    $sidebar.stop().animate({
+                        marginTop: $window.scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $sidebar.stop().animate({
+                        marginTop: 0
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29125905-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- /google analytics -->
+
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <a href="index.html" class="left"><img src="static/picture/logo_guide.png" alt="花密 Flower Password" id="logo"></a>
+
+        <ul id="nav" class="nav nav-pills">
+            <li><a href="index.html">首页</a></li>
+            <li class="active"><a href="">入门</a></li>
+            <li><a href="web.html">应用</a></li>
+        </ul>
+
+    </header>
+
+    
+<div id="content" class="row">
+	<div class="span9">
+		<p>作为一个普通青年，我们希望每个网络账号的密码是不同的，这样即使别人知道到其中一个，也不会殃及其他账号。可是账号多了，记住每个账号的密码也成为一个头痛的问题</p>
+		<p>可以把密码记在纸上、文本文档里或者干脆记录在密码管理软件里，但是不管记在哪里，都不如记在自己的脑袋里安全方便</p>
+		<p>于是，我们有了最基本的两个需求：<strong>1.为每个账号分配一个不同的密码</strong>；<strong>2.把密码记在脑袋里</strong></p>
+		<h2>花密是用来干什么的</h2>
+		<p>“花密”提供一种简单的密码管理方法，你只需要记住一个“记忆密码”，为不同的账号设置不同的“区分代号”，然后通过花密计算就可以得到对应的不同的复杂密码。花密团队提供了很多工具帮助你完成这个计算过程，如<a href="web.html">花密网页版</a>、<a href="chrome.html">Chrome扩展</a>等</p>
+		<img src="static/picture/guide1.png" alt="花密的计算过程" height="199px">
+		<p>如上图所示，假设记忆密码为“123456”，区分代号为“taobao”，通过花密计算加密，得到最终密码为“KfdDf77F7D64e5c0”。虽然原来的记忆密码比较简单，但是经过花密处理，密码就变得强壮了</p>
+		
+		<h2>如何使用花密</h2>
+		<h3><span>1</span>设计一个和个人信息无关的“记忆密码”。</h3>
+		<p>（“记忆密码”可以由数字、大小写字母、符号或汉字组成）“记忆密码”是你唯一需要记忆的密码，为了防止社会工程学破解，请确保这个密码和你的个人信息无关且长度在6位以上，如生日、姓名拼音、手机号等都不能用来组成记忆密码</p>
+		<h3><span>2</span>为需要加密的账号填写“区分代号”，使用花密计算出最终密码。</h3>
+		<p>（“区分代号”可以由数字、大小写字母、符号或汉字组成）如淘宝账号的区分代号可以设置成“taobao”、“tb”、“淘宝”等，注意不同的区分代号将会生成完全不同的最终密码。选择一种适合你的花密应用，如<a href="web.html">花密网页版</a>，将“记忆密码”和“区分代号”填入，复制最终密码</p>
+		<h3><span>3</span>将原账号的密码修改成由花密计算出的最终密码。</h3>
+		<img src="static/picture/guide2.png" alt="花密的计算过程" height="285px">
+		<p><a href="step.html" class="btn btn-large">查看使用步骤</a></p>
+	</div>
+	
+	<div class="span3">
+	<ul id="content-nav">
+		<li><a href="" class="&quot;active&quot;">入门指南</a></li>
+		<li><a href="step.html">使用步骤</a></li>
+		<li><a href="feature.html">特点优势</a></li>
+	</ul>
+</div></div><!-- /content -->
+	
+
+    <footer>
+        <p>Copyright &copy; 2011-2021 &nbsp;&nbsp;&nbsp; FlowerPassword.com &nbsp;&nbsp;&nbsp; All rights
+            reserved.</p>
+        <p>联系邮箱： <a target="_blank" href="mailto:kisexu@gmail.com?subject=花密交流">KiseXu@gmail.com</a></p>
+    </footer>
+</div><!-- /container -->
+</body>
+</html>
